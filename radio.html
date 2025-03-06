@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radio ICC California</title>
+    <style>
+        body {
+            background: #16183b;
+            color: white;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        .radio-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 10px;
+        }
+        .radio-logo {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+        .radio-title {
+            font-weight: bold;
+        }
+        .play-button {
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        .live-label {
+            color: #ff6b6b;
+            font-weight: bold;
+        }
+        #volume-slider {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="radio-wrapper">
+        <img class="radio-logo" src="https://blogger.googleusercontent.com/img/a/AVvXsEgU-oGeaxRlECdPzKW8_AXk1vUfDaF6hflBxSZ0HEA-fhJc4Zl7kHsvGBYyqRgfzwcjt4PKfNG4L4xWZvTp4faO8CgynMTLCELKZBmdgxG0sxCWp67fhu02VHd_T5W9_oY-9L2kjcThKYG_rr8WlVj47iwlrc6iZaFzHbSed4Lka97P_murgHzv3jjHqtJ2=s1600" alt="ICC CALIFORNIA">
+        <span class="radio-title">ICC CALIFORNIA</span>
+        <button class="play-button" id="play-btn">&#9654;&#65039;</button>
+        <span class="live-label">AL AIRE</span>
+        <input id="volume-slider" type="range" min="0" max="1" step="0.1" value="1">
+    </div>
+
+    <script>
+        const streamUrl = "https://icccradio.ngrok.app/stream";
+        let audio = new Audio(streamUrl);
+
+        document.getElementById("play-btn").addEventListener("click", function () {
+            if (audio.paused) {
+                audio.play();
+                this.textContent = "⏸️";
+            } else {
+                audio.pause();
+                this.textContent = "▶️";
+            }
+        });
+
+        document.getElementById("volume-slider").addEventListener("input", function () {
+            audio.volume = this.value;
+        });
+    </script>
+
+</body>
+</html>
