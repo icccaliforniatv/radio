@@ -176,26 +176,5 @@
 //]]>
  </script>
 
-<script>
-  //<![CDATA[
-document.addEventListener("DOMContentLoaded", function () {
-    const radio = document.querySelector(".radio-wrapper");
-
-    // Aplicar el efecto tanto en PC como en móviles
-    window.addEventListener("scroll", function () {
-        if (window.scrollY > 200) { // Aparece después de 200px de scroll
-            radio.classList.add("radio-visible");
-        } else {
-            radio.classList.remove("radio-visible");
-        }
-    });
-
-    // En móviles, mostrar siempre al cargar la página
-    if (window.innerWidth <= 768) {
-        radio.classList.add("radio-visible");
-    }
-});
-    </script>
-
 </body>
 </html>
